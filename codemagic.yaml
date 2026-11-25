@@ -1,0 +1,18 @@
+workflows:
+  editor3d:
+    name: Editor 3D APK
+    instance_type: linux_x2
+    max_build_duration: 30
+    environment:
+      flutter: stable
+    scripts:
+      - name: Buat folder android
+        script: |
+          flutter create . --platforms=android --project-name editor3d
+          sed -i.bak 's|<application|<uses-permission android:name="android.permission.INTERNET"/><application|' android/app/src/main/AndroidManifest.xml
+      - name: Ambil paket
+        script: flutter pub get
+      - name: Build APK
+        script: flutter build apk --release
+    artifacts:
+      - build/**/outputs/**/*.apk

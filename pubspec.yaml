@@ -1,0 +1,17 @@
+name: editor3d
+description: Editor 3D mini untuk HP
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.9.0
+  file_picker: ^8.1.2
+  share_plus: ^10.0.2
+  path_provider: ^2.1.4
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/editor.html
